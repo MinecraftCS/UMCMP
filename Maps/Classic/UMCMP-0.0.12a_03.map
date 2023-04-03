@@ -126,6 +126,10 @@ CLASS com/mojang/minecraft/MinecraftApplet com/mojang/minecraft/MinecraftApplet
 	FIELD b appThread Ljava/lang/Thread;
 	FIELD c canvas Ljava/awt/Canvas;
 	METHOD a endThread ()V
+	METHOD destroy ()V
+	METHOD init ()V
+	METHOD start ()V
+	METHOD stop ()V
 CLASS com/mojang/minecraft/a/b com/mojang/minecraft/level/StorePlayer1
 	FIELD a player Lcom/mojang/minecraft/d;
 	METHOD <init> (Lcom/mojang/minecraft/d;)V
@@ -159,7 +163,7 @@ CLASS com/mojang/minecraft/b/c com/mojang/minecraft/texture/Frustrum
 		ARG 1 side
 CLASS com/mojang/minecraft/c/b com/mojang/minecraft/particle/Particle
 	FIELD a tex I
-	FIELD b uo F
+	FIELD b u0 F
 	FIELD c v0 F
 	FIELD d scale F
 	FIELD u xd2 F
@@ -217,7 +221,7 @@ CLASS com/mojang/minecraft/b/b com/mojang/minecraft/texture/Tesselator
 	METHOD a color (BBB)V
 		ARG 1 r
 		ARG 2 g
-		ARG 3 n
+		ARG 3 b
 	METHOD a vertex (FFF)V
 		ARG 1 x
 		ARG 2 y
@@ -233,7 +237,7 @@ CLASS com/mojang/minecraft/b/b com/mojang/minecraft/texture/Tesselator
 	METHOD a color (III)V
 		ARG 1 r
 		ARG 2 g
-		ARG 3 n
+		ARG 3 b
 	METHOD b init ()V
 	METHOD c lockColor ()V
 	METHOD d clear ()V
@@ -477,9 +481,9 @@ CLASS com/mojang/minecraft/a/g com/mojang/minecraft/level/Level
 CLASS com/mojang/minecraft/d/d com/mojang/minecraft/character/Polygon
 	FIELD a vertices [Lcom/mojang/minecraft/d/e;
 	METHOD <init> ([Lcom/mojang/minecraft/d/e;)V
-		ARG 1 verticies
+		ARG 1 vertices
 	METHOD <init> ([Lcom/mojang/minecraft/d/e;IIII)V
-		ARG 1 verticies
+		ARG 1 vertices
 		ARG 2 u0
 		ARG 3 v0
 		ARG 4 u1
