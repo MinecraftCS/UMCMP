@@ -1,0 +1,599 @@
+CLASS com/mojang/minecraft/level/Level com/mojang/minecraft/level/Level
+	FIELD a listeners Ljava/util/ArrayList;
+	FIELD b lightDepths [I
+	FIELD blocks blocks [B
+	FIELD c random Ljava/util/Random;
+	FIELD createTime createTime J
+	FIELD creator creator Ljava/lang/String;
+	FIELD d doTick I
+	FIELD depth depth I
+	FIELD e tickUpdates Ljava/util/ArrayList;
+	FIELD entities entities Ljava/util/ArrayList;
+	FIELD height height I
+	FIELD name name Ljava/lang/String;
+	FIELD rotSpawn rotSpawn F
+	FIELD serialVersionUID serialVersionUID J
+	FIELD tickCount tickCount I
+	FIELD unprocessed unprocessed I
+	FIELD width width I
+	FIELD xSpawn xSpawn I
+	FIELD ySpawn ySpawn I
+	FIELD zSpawn zSpawn I
+	METHOD a isSolid (FFF)Z
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD a inBounds (III)Z
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD a updateTileFaces (IIII)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 type
+	METHOD addListener$74652038 addListener (Lcom/mojang/minecraft/server/MinecraftServer;)V
+		ARG 1 minecraftServer
+	METHOD addToTickNextTick addToTickNextTick (IIII)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 tile
+	METHOD b updateFaces (IIII)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 type
+	METHOD calcLightDepths calcLightDepths (IIII)V
+		ARG 1 x0
+		ARG 2 z0
+		ARG 3 x1
+		ARG 4 z1
+	METHOD containsAnyLiquid containsAnyLiquid (Lcom/mojang/minecraft/phys/AABB;)Z
+		ARG 1 aabb
+	METHOD containsLiquid containsLiquid (Lcom/mojang/minecraft/phys/AABB;Lcom/mojang/minecraft/level/c/a;)Z
+		ARG 1 aabb
+		ARG 2 type
+	METHOD copyBlocks copyBlocks ()[B
+	METHOD findSpawn findSpawn ()V
+	METHOD getBrightness getBrightness (III)F
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD getCaveness getCaveness (FFFF)F
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD getCaveness getCaveness (Lcom/mojang/minecraft/Entity;)F
+		ARG 1 entity
+	METHOD getCubes getCubes (Lcom/mojang/minecraft/phys/AABB;)Ljava/util/ArrayList;
+		ARG 1 aabb
+	METHOD getGroundLevel getGroundLevel ()F
+	METHOD getHighestTile getHighestTile (II)I
+		ARG 1 x
+		ARG 2 z
+	METHOD getTile getTile (III)I
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD getWaterLevel getWaterLevel ()F
+	METHOD initTransient initTransient ()V
+	METHOD isFree isFree (Lcom/mojang/minecraft/phys/AABB;)Z
+		ARG 1 aabb
+	METHOD isLightBlocker isLightBlocker (III)Z
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD isLit isLit (III)Z
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD isSolid isSolid (FFFF)Z
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 size
+	METHOD isSolidTile isSolidTile (III)Z
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD removeListener$74652038 removeListener (Lcom/mojang/minecraft/server/MinecraftServer;)V
+		ARG 1 minecraftServer
+	METHOD setData setData (III[B)V
+		ARG 1 width
+		ARG 2 depth
+		ARG 3 height
+		ARG 4 blocks
+	METHOD setSpawnPos setSpawnPos (IIIF)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 rot
+	METHOD setTile setTile (IIII)Z
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 type
+	METHOD setTileNoNeighborChange setTileNoNeighborChange (IIII)Z
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 type
+	METHOD setTileNoUpdate setTileNoUpdate (IIII)Z
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 id
+	METHOD swap swap (IIIIII)V
+		ARG 1 x0
+		ARG 2 y0
+		ARG 3 z0
+		ARG 4 x1
+		ARG 5 y1
+		ARG 6 z1
+	METHOD tick tick ()V
+	METHOD tickEntities tickEntities ()V
+CLASS com/mojang/minecraft/server/MinecraftServer com/mojang/minecraft/server/MinecraftServer
+	FIELD a logger Ljava/util/logging/Logger;
+	FIELD b time Ljava/text/DateFormat;
+	FIELD c level Lcom/mojang/minecraft/level/Level;
+	FIELD d serverName Ljava/lang/String;
+	FIELD e serverMotd Ljava/lang/String;
+	FIELD f admins Lcom/mojang/minecraft/server/b;
+	FIELD g bans Lcom/mojang/minecraft/server/b;
+	FIELD h socketHandler Lcom/mojang/a/a;
+	FIELD i playerTable Ljava/util/Map;
+	FIELD j playerList Ljava/util/List;
+	FIELD k handlersToDispose Ljava/util/List;
+	FIELD l serverMaxPlayers I
+	FIELD m properties Ljava/util/Properties;
+	FIELD n serverIsPublic Z
+	FIELD o serverPort I
+	FIELD p somethingAboutPlayers [Lcom/mojang/minecraft/server/d;
+	FIELD q ipBans Lcom/mojang/minecraft/server/b;
+	METHOD a getPlayers ()Ljava/util/List;
+	METHOD a setDirty (III)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD a disconnectPlayer (Lcom/mojang/a/b;)V
+		ARG 1 packetHandler
+	METHOD a broadcastPacket (Lcom/mojang/minecraft/a/a;[Ljava/lang/Object;)V
+		ARG 1 packet
+		ARG 2 data
+	METHOD a disposePlayer (Lcom/mojang/minecraft/server/d;)V
+		ARG 1 player
+	METHOD a sendPacket (Lcom/mojang/minecraft/server/d;Lcom/mojang/minecraft/a/a;[Ljava/lang/Object;)V
+		ARG 1 player
+		ARG 2 packet
+		ARG 3 data
+	METHOD a logInfo (Ljava/lang/String;)V
+		ARG 1 log
+	METHOD b tick ()V
+	METHOD b disposeHandler (Lcom/mojang/a/b;)V
+		ARG 1 packetHandler
+	METHOD b removePlayer (Lcom/mojang/minecraft/server/d;)V
+		ARG 0 player
+	METHOD b logFine (Ljava/lang/String;)V
+		ARG 1 log
+	METHOD c tickSocket ()V
+	METHOD c kickPlayer (Ljava/lang/String;)V
+		ARG 1 userName
+	METHOD d getAvailableHandle ()I
+	METHOD d banPlayer (Ljava/lang/String;)V
+		ARG 1 userName
+	METHOD e opPlayer (Ljava/lang/String;)V
+		ARG 1 userName
+	METHOD f deopPlayer (Ljava/lang/String;)V
+		ARG 1 userName
+	METHOD g unbanPlayer (Ljava/lang/String;)V
+		ARG 1 userName
+	METHOD h ipBanPlayer (Ljava/lang/String;)V
+		ARG 1 userName
+	METHOD main main ([Ljava/lang/String;)V
+		ARG 0 thread
+	METHOD run run ()V
+CLASS com/mojang/a/a com/mojang/network/SocketHandler
+	FIELD a socketChannel Ljava/nio/channels/ServerSocketChannel;
+	FIELD b client Lcom/mojang/minecraft/server/MinecraftServer;
+	FIELD c packetHandlers Ljava/util/List;
+	METHOD <init> (ILcom/mojang/minecraft/server/MinecraftServer;)V
+		ARG 1 socketAddress
+		ARG 2 client
+CLASS com/mojang/a/b com/mojang/network/PacketHandler
+	FIELD a connected Z
+	FIELD b socketChannel Ljava/nio/channels/SocketChannel;
+	FIELD c receiveData Ljava/nio/ByteBuffer;
+	FIELD d blastData Ljava/nio/ByteBuffer;
+	FIELD e player Lcom/mojang/minecraft/server/d;
+	FIELD f ip Ljava/lang/String;
+	FIELD g socket Ljava/net/Socket;
+	FIELD i stringBuffer [B
+	METHOD <init> (Ljava/nio/channels/SocketChannel;)V
+		ARG 1 socketChannel
+	METHOD a disconnect ()V
+	METHOD a sendPacket (Lcom/mojang/minecraft/a/a;[Ljava/lang/Object;)V
+		ARG 1 packet
+		ARG 2 packetData
+	METHOD a getParameter (Ljava/lang/Class;)Ljava/lang/Object;
+		ARG 1 type
+CLASS com/mojang/minecraft/level/b/a/d com/mojang/minecraft/level/generator/noise/NoiseSlice
+	FIELD a heightMap [I
+	METHOD <init> (Ljava/util/Random;)V
+		ARG 1 random
+	METHOD a noiseGen1 (D)D
+		ARG 0 deci
+	METHOD a noiseGen2 (DDD)D
+		ARG 0 deci1
+		ARG 2 deci2
+		ARG 4 deci3
+	METHOD a noiseGen3 (IDDD)D
+		ARG 0 height
+		ARG 1 deci1
+		ARG 3 deci2
+		ARG 5 deci3
+CLASS com/mojang/minecraft/level/b/a/c com/mojang/minecraft/level/generator/noise/Noise
+	METHOD a getNoise (DD)D
+		ARG 1 deci1
+		ARG 3 deci2
+CLASS com/mojang/minecraft/phys/AABB com/mojang/minecraft/phys/AABB
+	FIELD epsilon epsilon F
+	FIELD serialVersionUID serialVersionUID J
+	FIELD x0 x0 F
+	FIELD x1 x1 F
+	FIELD y0 y0 F
+	FIELD y1 y1 F
+	FIELD z0 z0 F
+	FIELD z1 z1 F
+	METHOD <init> (FFFFFF)V
+		ARG 1 x0
+		ARG 2 y0
+		ARG 3 z0
+		ARG 4 x1
+		ARG 5 y1
+		ARG 6 z1
+	METHOD clipXCollide clipXCollide (Lcom/mojang/minecraft/phys/AABB;F)F
+		ARG 1 aabb
+		ARG 2 xa
+	METHOD clipYCollide clipYCollide (Lcom/mojang/minecraft/phys/AABB;F)F
+		ARG 1 aabb
+		ARG 2 ya
+	METHOD clipZCollide clipZCollide (Lcom/mojang/minecraft/phys/AABB;F)F
+		ARG 1 aabb
+		ARG 2 za
+	METHOD cloneMove cloneMove (FFF)Lcom/mojang/minecraft/phys/AABB;
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD expand expand (FFF)Lcom/mojang/minecraft/phys/AABB;
+		ARG 1 xa
+		ARG 2 ya
+		ARG 3 za
+	METHOD grow grow (FFF)Lcom/mojang/minecraft/phys/AABB;
+		ARG 1 xa
+		ARG 2 ya
+		ARG 3 za
+	METHOD intersects intersects (Lcom/mojang/minecraft/phys/AABB;)Z
+		ARG 1 aabb
+	METHOD move move (FFF)V
+		ARG 1 xa
+		ARG 2 ya
+		ARG 3 za
+CLASS com/mojang/minecraft/level/b/a/b com/mojang/minecraft/level/generator/noise/NoiseSlicer
+	FIELD a slices [Lcom/mojang/minecraft/level/b/a/d;
+	FIELD b count I
+	METHOD <init> (Ljava/util/Random;I)V
+		ARG 1 random
+		ARG 2 index
+CLASS com/mojang/minecraft/level/b/a/a com/mojang/minecraft/level/generator/noise/NoiseGenerator
+	FIELD a noise1 Lcom/mojang/minecraft/level/b/a/c;
+	FIELD b noise2 Lcom/mojang/minecraft/level/b/a/c;
+	METHOD <init> (Lcom/mojang/minecraft/level/b/a/c;Lcom/mojang/minecraft/level/b/a/c;)V
+		ARG 1 noise1
+		ARG 2 noise2
+CLASS com/mojang/minecraft/level/a/b com/mojang/minecraft/level/tile/Tile
+	FIELD a tiles [Lcom/mojang/minecraft/level/a/b;
+	FIELD b doTick [Z
+	FIELD c stone Lcom/mojang/minecraft/level/a/b;
+	FIELD d grass Lcom/mojang/minecraft/level/a/b;
+	FIELD e dirt Lcom/mojang/minecraft/level/a/b;
+	FIELD f bedrock Lcom/mojang/minecraft/level/a/b;
+	FIELD g water1 Lcom/mojang/minecraft/level/a/b;
+	FIELD h water2 Lcom/mojang/minecraft/level/a/b;
+	FIELD i lava1 Lcom/mojang/minecraft/level/a/b;
+	FIELD j lava2 Lcom/mojang/minecraft/level/a/b;
+	FIELD k sand Lcom/mojang/minecraft/level/a/b;
+	FIELD l gravel Lcom/mojang/minecraft/level/a/b;
+	FIELD m goldOre Lcom/mojang/minecraft/level/a/b;
+	FIELD n ironOre Lcom/mojang/minecraft/level/a/b;
+	FIELD o coalOre Lcom/mojang/minecraft/level/a/b;
+	FIELD p log Lcom/mojang/minecraft/level/a/b;
+	FIELD q leaves Lcom/mojang/minecraft/level/a/b;
+	FIELD r id I
+	METHOD <init> (I)V
+		ARG 1 id
+	METHOD <init> (II)V
+		ARG 1 id
+		ARG 2 tex
+	METHOD a blocksLight ()Z
+	METHOD a getAABB (III)Lcom/mojang/minecraft/phys/AABB;
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD a tick (Lcom/mojang/minecraft/level/Level;III)V
+		ARG 1 level
+		ARG 2 x
+		ARG 3 y
+		ARG 4 z
+	METHOD a checkFaces (Lcom/mojang/minecraft/level/Level;IIII)V
+		ARG 1 level
+		ARG 2 x
+		ARG 3 y
+		ARG 4 z
+		ARG 5 id
+	METHOD a tick (Lcom/mojang/minecraft/level/Level;IIILjava/util/Random;)V
+		ARG 1 level
+		ARG 2 x
+		ARG 3 y
+		ARG 4 z
+		ARG 5 random
+	METHOD a setDoTick (Z)V
+		ARG 1 doTick
+	METHOD b isSolid ()Z
+	METHOD c getType ()Lcom/mojang/minecraft/level/c/a;
+CLASS com/mojang/minecraft/level/b com/mojang/minecraft/level/TickUpdate
+	FIELD a x I
+	FIELD b y I
+	FIELD c z I
+	FIELD d tile I
+	FIELD e tickCount I
+	METHOD <init> (IIII)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 tile
+CLASS com/mojang/minecraft/level/b/a com/mojang/minecraft/level/generator/LevelGenerator
+	FIELD a client Lcom/mojang/minecraft/server/MinecraftServer;
+	FIELD b width I
+	FIELD c height I
+	FIELD d depth I
+	FIELD e random Ljava/util/Random;
+	FIELD f blockArray [B
+	FIELD g fluidLevels [I
+	METHOD <init> (Lcom/mojang/minecraft/server/MinecraftServer;)V
+		ARG 1 client
+	METHOD a floodMap ()V
+	METHOD a spawnOres (IIII)V
+		ARG 1 tile
+		ARG 2 x
+		ARG 3 y
+		ARG 4 z
+	METHOD a floodMap (IIIII)J
+		ARG 1 x
+		ARG 2 fluidLevel
+		ARG 3 z
+		ARG 4 byteId
+		ARG 5 id
+	METHOD a loadWorld (Ljava/lang/String;III)Lcom/mojang/minecraft/level/Level;
+		ARG 1 username
+		ARG 2 width
+		ARG 3 height
+		ARG 4 depth
+	METHOD a generateBeaches ([I)V
+		ARG 1 blocks
+	METHOD b spawnTrees ([I)V
+		ARG 1 blocks
+CLASS com/mojang/minecraft/level/c/a com/mojang/minecraft/level/types/TileType
+	FIELD a Normal Lcom/mojang/minecraft/level/c/a;
+	FIELD b Water Lcom/mojang/minecraft/level/c/a;
+	FIELD c Lava Lcom/mojang/minecraft/level/c/a;
+	FIELD d types [Lcom/mojang/minecraft/level/c/a;
+	METHOD <init> (I)V
+		ARG 1 type
+CLASS com/mojang/minecraft/level/a/c com/mojang/minecraft/level/tile/Leaves
+CLASS com/mojang/minecraft/a/b com/mojang/minecraft/network/Unused
+CLASS com/mojang/minecraft/b/a com/mojang/minecraft/renderer/Textures
+CLASS com/mojang/minecraft/level/a/d com/mojang/minecraft/level/tile/Block
+CLASS com/mojang/minecraft/a/a com/mojang/minecraft/network/Packet
+	FIELD a packetTypes [Lcom/mojang/minecraft/a/a;
+	FIELD b login Lcom/mojang/minecraft/a/a;
+	FIELD c tick Lcom/mojang/minecraft/a/a;
+	FIELD d initWorldLoad Lcom/mojang/minecraft/a/a;
+	FIELD e initWorldData Lcom/mojang/minecraft/a/a;
+	FIELD f initWorldSize Lcom/mojang/minecraft/a/a;
+	FIELD g placeBlock Lcom/mojang/minecraft/a/a;
+	FIELD h setDirty Lcom/mojang/minecraft/a/a;
+	FIELD i updatePlayer Lcom/mojang/minecraft/a/a;
+	FIELD j input Lcom/mojang/minecraft/a/a;
+	FIELD k tooFast Lcom/mojang/minecraft/a/a;
+	FIELD l move Lcom/mojang/minecraft/a/a;
+	FIELD m rotate Lcom/mojang/minecraft/a/a;
+	FIELD n disconnect Lcom/mojang/minecraft/a/a;
+	FIELD o chat Lcom/mojang/minecraft/a/a;
+	FIELD p kick Lcom/mojang/minecraft/a/a;
+	FIELD q parameterSize I
+	FIELD r packetID B
+	FIELD s parameters [Ljava/lang/Class;
+	FIELD t currentPacketID I
+	METHOD <init> ([Ljava/lang/Class;)V
+		ARG 1 parameters
+CLASS com/mojang/minecraft/level/a/e com/mojang/minecraft/level/tile/FallingTile
+	METHOD b fall (Lcom/mojang/minecraft/level/Level;III)V
+		ARG 0 level
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+CLASS com/mojang/minecraft/level/a com/mojang/minecraft/level/LevelOnline
+	FIELD a client Lcom/mojang/minecraft/server/MinecraftServer;
+	METHOD <init> (Lcom/mojang/minecraft/server/MinecraftServer;)V
+		ARG 1 client
+	METHOD a save (Lcom/mojang/minecraft/level/Level;Ljava/io/OutputStream;)V
+		ARG 0 level
+		ARG 1 data
+	METHOD a load (Ljava/io/InputStream;)Lcom/mojang/minecraft/level/Level;
+		ARG 1 data
+CLASS com/mojang/minecraft/server/a com/mojang/minecraft/server/InitializePlayer
+	FIELD a data [B
+	FIELD b player Lcom/mojang/minecraft/server/d;
+	METHOD <init> (Lcom/mojang/minecraft/server/d;[B)V
+		ARG 1 player
+		ARG 2 data
+	METHOD run run ()V
+CLASS com/mojang/minecraft/level/a/f com/mojang/minecraft/level/tile/Lava
+CLASS com/mojang/minecraft/server/b com/mojang/minecraft/server/PlayerList
+	FIELD a logger Ljava/util/logging/Logger;
+	FIELD b name Ljava/lang/String;
+	FIELD c saveFile Ljava/io/File;
+	FIELD d matchCase Z
+	FIELD e playerList Ljava/util/Set;
+	METHOD <init> (Ljava/lang/String;Ljava/io/File;Z)V
+		ARG 1 name
+		ARG 2 saveFile
+		ARG 3 matchCase
+	METHOD a load ()V
+	METHOD a add (Ljava/lang/String;)V
+		ARG 1 userName
+	METHOD b save ()V
+	METHOD b remove (Ljava/lang/String;)V
+		ARG 1 userName
+	METHOD c contains (Ljava/lang/String;)Z
+		ARG 1 userName
+CLASS com/mojang/minecraft/level/a/g com/mojang/minecraft/level/tile/Log
+CLASS com/mojang/minecraft/level/a/h com/mojang/minecraft/level/tile/Water
+	FIELD s type Lcom/mojang/minecraft/level/c/a;
+	FIELD t liquidIdIndexed I
+	FIELD u liquidId I
+	METHOD <init> (ILcom/mojang/minecraft/level/c/a;)V
+		ARG 1 id
+		ARG 2 type
+	METHOD b tryHoriSpread (Lcom/mojang/minecraft/level/Level;III)Z
+		ARG 1 level
+		ARG 2 x
+		ARG 3 y
+		ARG 4 z
+CLASS com/mojang/minecraft/level/a/i com/mojang/minecraft/level/tile/GrassTile
+CLASS com/mojang/minecraft/Entity com/mojang/minecraft/Entity
+	FIELD bbHeight bbHeight F
+	FIELD bb bb Lcom/mojang/minecraft/phys/AABB;
+	FIELD bbWidth bbWidth F
+	FIELD heightOffset heightOffset F
+	FIELD horizontalCollision horizontalCollision Z
+	FIELD level level Lcom/mojang/minecraft/level/Level;
+	FIELD onGround onGround Z
+	FIELD removed removed Z
+	FIELD serialVersionUID serialVersionUID J
+	FIELD x x F
+	FIELD xRot xRot F
+	FIELD xRotO xRotO F
+	FIELD xd xd F
+	FIELD xo xo F
+	FIELD y y F
+	FIELD yRot yRot F
+	FIELD yRotO yRotO F
+	FIELD yd yd F
+	FIELD yo yo F
+	FIELD z z F
+	FIELD zd zd F
+	FIELD zo zo F
+	METHOD <init> (Lcom/mojang/minecraft/level/Level;)V
+		ARG 1 level
+	METHOD getBrightness getBrightness ()F
+	METHOD interpolateTurn interpolateTurn (FF)V
+		ARG 1 xo
+		ARG 2 yo
+	METHOD isFree isFree (FFF)Z
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD isInLava isInLava ()Z
+	METHOD isInWater isInWater ()Z
+	METHOD isLit isLit ()Z
+	METHOD move move (FFF)V
+		ARG 1 xa
+		ARG 2 ya
+		ARG 3 za
+	METHOD moveRelative moveRelative (FFF)V
+		ARG 1 xa
+		ARG 2 za
+		ARG 3 speed
+	METHOD moveTo moveTo (FFFFF)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 xRot
+		ARG 5 yRot
+	METHOD remove remove ()V
+	METHOD render render (Lcom/mojang/minecraft/b/a;F)V
+		ARG 1 textures
+		ARG 2 a
+	METHOD resetPos resetPos ()V
+	METHOD setLevel setLevel (Lcom/mojang/minecraft/level/Level;)V
+		ARG 1 level
+	METHOD setPos setPos (FFF)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD setPos setPos (Lcom/mojang/minecraft/a/b;)V
+	METHOD setRot setRot (FF)V
+		ARG 1 y
+		ARG 2 z
+	METHOD setSize setSize (FF)V
+		ARG 1 w
+		ARG 2 h
+	METHOD tick tick ()V
+	METHOD turn turn (FF)V
+		ARG 1 xo
+		ARG 2 yo
+CLASS com/mojang/minecraft/server/e com/mojang/minecraft/server/Heartbeat
+	FIELD a httpURLConnection Ljava/net/HttpURLConnection;
+	FIELD b data Ljava/lang/String;
+	METHOD <init> (Lcom/mojang/minecraft/server/MinecraftServer;Ljava/net/HttpURLConnection;Ljava/lang/String;)V
+		ARG 1 client
+		ARG 2 httpURLConnection
+		ARG 3 data
+	METHOD run run ()V
+CLASS com/mojang/minecraft/server/f com/mojang/minecraft/server/Formatter
+	METHOD format format (Ljava/util/logging/LogRecord;)Ljava/lang/String;
+		ARG 1 logRecord
+CLASS com/mojang/minecraft/server/c com/mojang/minecraft/server/DisposeHandler
+	FIELD a packetHandler Lcom/mojang/a/b;
+	FIELD b lifeSpan I
+	METHOD <init> (Lcom/mojang/a/b;I)V
+		ARG 1 packetHandler
+		ARG 2 id
+CLASS com/mojang/minecraft/server/d com/mojang/minecraft/server/Player
+	FIELD a packetHandler Lcom/mojang/a/b;
+	FIELD b userName Ljava/lang/String;
+	FIELD c playerHandle I
+	FIELD d logger Ljava/util/logging/Logger;
+	FIELD e client Lcom/mojang/minecraft/server/MinecraftServer;
+	FIELD f loaded Z
+	FIELD g initialized Z
+	FIELD h packetData Ljava/util/ArrayList;
+	FIELD i x I
+	FIELD j y I
+	FIELD k z I
+	FIELD l yRot I
+	FIELD m xRot I
+	FIELD n inputDebounce I
+	FIELD o worldData [B
+	METHOD <init> (Lcom/mojang/minecraft/server/MinecraftServer;Lcom/mojang/a/b;I)V
+		ARG 1 client
+		ARG 2 packetHandler
+		ARG 3 playerHandle
+	METHOD a connectToServer ()V
+	METHOD a handlePacket (Lcom/mojang/minecraft/a/a;[Ljava/lang/Object;)V
+		ARG 1 packet
+		ARG 2 packetParams
+	METHOD a playerLeave (Ljava/lang/Exception;)V
+		ARG 1 exception
+	METHOD a kickUser (Ljava/lang/String;)V
+		ARG 1 message
+	METHOD a setWorldData ([B)V
+		ARG 1 worldData
+	METHOD b sendPacket (Lcom/mojang/minecraft/a/a;[Ljava/lang/Object;)V
+		ARG 1 packet
+		ARG 2 data
+	METHOD b sendMessage (Ljava/lang/String;)V
+		ARG 1 message
+CLASS com/mojang/minecraft/level/a/a com/mojang/minecraft/level/tile/Bush
