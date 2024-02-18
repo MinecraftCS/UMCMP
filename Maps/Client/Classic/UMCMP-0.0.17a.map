@@ -1015,7 +1015,7 @@ CLASS com/mojang/minecraft/d com/mojang/minecraft/Minecraft
 		ARG 2 width
 		ARG 3 height
 		ARG 4 fullscreen
-	METHOD a close ()V
+	METHOD a grabMouse ()V
 	METHOD a moveCameraToPlayer (F)V
 		ARG 1 a
 	METHOD a getBuffer (FFFF)Ljava/nio/FloatBuffer;
@@ -1047,14 +1047,13 @@ CLASS com/mojang/minecraft/d com/mojang/minecraft/Minecraft
 		ARG 1 size
 	METHOD b loadingScreen (Ljava/lang/String;)V
 		ARG 1 text
-	METHOD c grabMouse ()V
+	METHOD c releaseMouse ()V
 	METHOD c addChatMessage (Ljava/lang/String;)V
 		ARG 1 message
-	METHOD d releaseMouse ()V
+	METHOD d handleMouse ()V
 	METHOD d checkGlError (Ljava/lang/String;)V
 		ARG 0 str
-	METHOD e handleMouse ()V
-	METHOD f tick ()V
+	METHOD e tick ()V
 	METHOD f connected ()Z
 	METHOD g setupOrthoCamera ()V
 	METHOD h renderGui ()V
