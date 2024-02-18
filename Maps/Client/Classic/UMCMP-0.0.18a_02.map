@@ -1029,7 +1029,7 @@ CLASS com/mojang/minecraft/d com/mojang/minecraft/Minecraft
 		ARG 2 width
 		ARG 3 height
 		ARG 4 fullscreen
-	METHOD a grabMouse ()V
+	METHOD a close ()V
 	METHOD a moveCameraToPlayer (F)V
 		ARG 1 a
 	METHOD a getBuffer (FFFF)Ljava/nio/FloatBuffer;
@@ -1054,7 +1054,7 @@ CLASS com/mojang/minecraft/d com/mojang/minecraft/Minecraft
 	METHOD a initLevel (Ljava/lang/String;I)Z
 		ARG 1 username
 		ARG 2 worldId
-	METHOD b stop ()V
+	METHOD b grabMouse ()V
 	METHOD b render (F)V
 		ARG 1 a
 	METHOD b generateWorld (I)V
