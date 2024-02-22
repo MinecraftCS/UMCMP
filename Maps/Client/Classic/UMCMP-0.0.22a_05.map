@@ -7,7 +7,7 @@ CLASS com/mojang/minecraft/level/tile/g com/mojang/minecraft/level/tile/FallingT
 		ARG 3 z
 CLASS com/mojang/minecraft/level/tile/f com/mojang/minecraft/level/tile/Liquid
 	FIELD W type Lcom/mojang/minecraft/level/b/a;
-	FIELD X liquidIdIndexed I
+	FIELD X liquidIdIndex I
 	FIELD Y liquidId I
 	METHOD <init> (ILcom/mojang/minecraft/level/b/a;)V
 		ARG 1 id
@@ -60,7 +60,7 @@ CLASS com/mojang/minecraft/net/d com/mojang/minecraft/net/SkinHandler
 	FIELD a networkPlayer Lcom/mojang/minecraft/net/NetworkPlayer;
 	METHOD <init> (Lcom/mojang/minecraft/net/NetworkPlayer;)V
 		ARG 1 networkPlayer
-	METHOD run run ()V
+	METHOD run ()V
 CLASS com/mojang/minecraft/net/e com/mojang/minecraft/net/ServerConnect
 	FIELD a ip Ljava/lang/String;
 	FIELD b port I
@@ -75,24 +75,7 @@ CLASS com/mojang/minecraft/net/e com/mojang/minecraft/net/ServerConnect
 		ARG 4 username
 		ARG 5 mpPass
 		ARG 6 client
-	METHOD run run ()V
-CLASS com/mojang/minecraft/level/tile/Tile
-	CLASS SoundType SoundType
-		FIELD cloth cloth Lcom/mojang/minecraft/level/tile/Tile$SoundType;
-		FIELD grass grass Lcom/mojang/minecraft/level/tile/Tile$SoundType;
-		FIELD gravel gravel Lcom/mojang/minecraft/level/tile/Tile$SoundType;
-		FIELD metal metal Lcom/mojang/minecraft/level/tile/Tile$SoundType;
-		FIELD name name Ljava/lang/String;
-		FIELD none none Lcom/mojang/minecraft/level/tile/Tile$SoundType;
-		FIELD stone stone Lcom/mojang/minecraft/level/tile/Tile$SoundType;
-		FIELD wood wood Lcom/mojang/minecraft/level/tile/Tile$SoundType;
-		METHOD getPitch getPitch ()F
-		METHOD getVolume getVolume ()F
-CLASS com/mojang/minecraft/b/a com/mojang/minecraft/sounds/AudioChannel
-	METHOD a getSampleAudio ([I[II)Z
-		ARG 1 leftChannel
-		ARG 2 rightChannel
-		ARG 3 dataSize
+	METHOD run ()V
 CLASS de/jarnbjo/a/a/a de/jarnbjo/util/io/ByteArrayBitInputStream
 	FIELD a source [B
 	FIELD b currentByte B
@@ -111,6 +94,11 @@ CLASS de/jarnbjo/a/a/a de/jarnbjo/util/io/ByteArrayBitInputStream
 		ARG 1 root
 	METHOD b getLong (I)J
 		ARG 1 bits
+CLASS com/mojang/minecraft/b/a com/mojang/minecraft/sounds/AudioChannel
+	METHOD a getSampleAudio ([I[II)Z
+		ARG 1 leftChannel
+		ARG 2 rightChannel
+		ARG 3 dataSize
 CLASS com/mojang/minecraft/net/a com/mojang/minecraft/net/Packet
 	FIELD a packetTypes [Lcom/mojang/minecraft/net/a;
 	FIELD b login Lcom/mojang/minecraft/net/a;
@@ -216,7 +204,7 @@ CLASS com/mojang/minecraft/b/i com/mojang/minecraft/sounds/SoundSystem
 	METHOD a addAudioChannel (Lcom/mojang/minecraft/b/h;Lcom/mojang/minecraft/b/f;)V
 		ARG 1 soundProvider
 		ARG 2 audioSource
-	METHOD run run ()V
+	METHOD run ()V
 CLASS com/mojang/minecraft/b/h com/mojang/minecraft/sounds/SoundProvider
 	FIELD a volume F
 	METHOD a getSoundData ([SI)I
@@ -265,7 +253,7 @@ CLASS com/mojang/minecraft/b/l com/mojang/minecraft/sounds/MusicProvider
 	FIELD a musicChannel Lcom/mojang/minecraft/b/m;
 	METHOD <init> (Lcom/mojang/minecraft/b/m;)V
 		ARG 1 musicChannel
-	METHOD run run ()V
+	METHOD run ()V
 CLASS com/mojang/minecraft/b/n com/mojang/minecraft/sounds/PositionAudioSource
 	FIELD a x F
 	FIELD b y F
@@ -284,16 +272,16 @@ CLASS com/mojang/minecraft/level/tile/b com/mojang/minecraft/level/tile/Leaves
 		ARG 2 tex
 		ARG 3 unused
 CLASS com/mojang/minecraft/particle/Particle com/mojang/minecraft/particle/Particle
-	FIELD age age I
-	FIELD gravity gravity F
-	FIELD lifetime lifetime I
-	FIELD size size F
-	FIELD tex tex I
-	FIELD uo uo F
-	FIELD vo vo F
-	FIELD xd xd F
-	FIELD yd yd F
-	FIELD zd zd F
+	FIELD age I
+	FIELD gravity F
+	FIELD lifetime I
+	FIELD size F
+	FIELD tex I
+	FIELD uo F
+	FIELD vo F
+	FIELD xd F
+	FIELD yd F
+	FIELD zd F
 	METHOD <init> (Lcom/mojang/minecraft/level/Level;FFFFFFLcom/mojang/minecraft/level/tile/a;)V
 		ARG 1 level
 		ARG 2 x
@@ -502,26 +490,26 @@ CLASS com/mojang/minecraft/level/a/a/a com/mojang/minecraft/level/generator/nois
 CLASS com/mojang/minecraft/level/Level com/mojang/minecraft/level/Level
 	FIELD a listeners Ljava/util/ArrayList;
 	FIELD b lightDepths [I
-	FIELD blocks blocks [B
+	FIELD blocks [B
 	FIELD c random Ljava/util/Random;
-	FIELD createTime createTime J
-	FIELD creator creator Ljava/lang/String;
+	FIELD createTime J
+	FIELD creator Ljava/lang/String;
 	FIELD d doTick I
-	FIELD depth depth I
+	FIELD depth I
 	FIELD e tickUpdates Ljava/util/ArrayList;
-	FIELD entities entities Ljava/util/ArrayList;
-	FIELD height height I
-	FIELD name name Ljava/lang/String;
-	FIELD networkMode networkMode Z
+	FIELD entities Ljava/util/ArrayList;
+	FIELD height I
+	FIELD name Ljava/lang/String;
+	FIELD networkMode Z
 	FIELD rendererContext$5cd64a7f client Lcom/mojang/minecraft/h;
-	FIELD rotSpawn rotSpawn F
-	FIELD serialVersionUID serialVersionUID J
-	FIELD tickCount tickCount I
-	FIELD unprocessed unprocessed I
-	FIELD width width I
-	FIELD xSpawn xSpawn I
-	FIELD ySpawn ySpawn I
-	FIELD zSpawn zSpawn I
+	FIELD rotSpawn F
+	FIELD serialVersionUID J
+	FIELD tickCount I
+	FIELD unprocessed I
+	FIELD width I
+	FIELD xSpawn I
+	FIELD ySpawn I
+	FIELD zSpawn I
 	METHOD a isSolid (FFF)Z
 		ARG 1 x
 		ARG 2 y
@@ -537,133 +525,133 @@ CLASS com/mojang/minecraft/level/Level com/mojang/minecraft/level/Level
 		ARG 4 type
 	METHOD addListener$74652038 addListener (Lcom/mojang/minecraft/a/g;)V
 		ARG 1 listener
-	METHOD addToTickNextTick addToTickNextTick (IIII)V
+	METHOD addToTickNextTick (IIII)V
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
 		ARG 4 tile
-	METHOD calcLightDepths calcLightDepths (IIII)V
+	METHOD calcLightDepths (IIII)V
 		ARG 1 x0
 		ARG 2 z0
 		ARG 3 x1
 		ARG 4 z1
-	METHOD clip clip (Lcom/mojang/minecraft/character/d;Lcom/mojang/minecraft/character/d;)Lcom/mojang/minecraft/f;
+	METHOD clip (Lcom/mojang/minecraft/character/d;Lcom/mojang/minecraft/character/d;)Lcom/mojang/minecraft/f;
 		ARG 1 d1
 		ARG 2 d2
-	METHOD containsAnyLiquid containsAnyLiquid (Lcom/mojang/minecraft/phys/AABB;)Z
+	METHOD containsAnyLiquid (Lcom/mojang/minecraft/phys/AABB;)Z
 		ARG 1 aabb
-	METHOD containsLiquid containsLiquid (Lcom/mojang/minecraft/phys/AABB;Lcom/mojang/minecraft/level/b/a;)Z
+	METHOD containsLiquid (Lcom/mojang/minecraft/phys/AABB;Lcom/mojang/minecraft/level/b/a;)Z
 		ARG 1 aabb
 		ARG 2 type
-	METHOD copyBlocks copyBlocks ()[B
-	METHOD findSpawn findSpawn ()V
-	METHOD getBrightness getBrightness (III)F
+	METHOD copyBlocks ()[B
+	METHOD findSpawn ()V
+	METHOD getBrightness (III)F
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
-	METHOD getCaveness getCaveness (FFFF)F
+	METHOD getCaveness (FFFF)F
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
 		ARG 4 rot
-	METHOD getCaveness getCaveness (Lcom/mojang/minecraft/Entity;)F
+	METHOD getCaveness (Lcom/mojang/minecraft/Entity;)F
 		ARG 1 entity
-	METHOD getCubes getCubes (Lcom/mojang/minecraft/phys/AABB;)Ljava/util/ArrayList;
+	METHOD getCubes (Lcom/mojang/minecraft/phys/AABB;)Ljava/util/ArrayList;
 		ARG 1 aabb
-	METHOD getGroundLevel getGroundLevel ()F
-	METHOD getHighestTile getHighestTile (II)I
+	METHOD getGroundLevel ()F
+	METHOD getHighestTile (II)I
 		ARG 1 x
 		ARG 2 y
-	METHOD getTile getTile (III)I
+	METHOD getTile (III)I
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
-	METHOD getWaterLevel getWaterLevel ()F
-	METHOD initTransient initTransient ()V
-	METHOD isFree isFree (Lcom/mojang/minecraft/phys/AABB;)Z
+	METHOD getWaterLevel ()F
+	METHOD initTransient ()V
+	METHOD isFree (Lcom/mojang/minecraft/phys/AABB;)Z
 		ARG 1 aabb
-	METHOD isLightBlocker isLightBlocker (III)Z
+	METHOD isLightBlocker (III)Z
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
-	METHOD isLit isLit (III)Z
+	METHOD isLit (III)Z
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
-	METHOD isSolid isSolid (FFFF)Z
+	METHOD isSolid (FFFF)Z
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
 		ARG 4 size
-	METHOD isSolidTile isSolidTile (III)Z
+	METHOD isSolidTile (III)Z
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
-	METHOD isWater isWater (III)Z
+	METHOD isWater (III)Z
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
-	METHOD netSetTile netSetTile (IIII)Z
-		ARG 1 x
-		ARG 2 y
-		ARG 3 z
-		ARG 4 type
-	METHOD netSetTileNoNeighborChange netSetTileNoNeighborChange (IIII)Z
+	METHOD netSetTile (IIII)Z
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
 		ARG 4 type
-	METHOD playSound playSound (Ljava/lang/String;FFFFF)V
+	METHOD netSetTileNoNeighborChange (IIII)Z
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 type
+	METHOD playSound (Ljava/lang/String;FFFFF)V
 		ARG 1 name
 		ARG 2 x
 		ARG 3 y
 		ARG 4 z
 		ARG 5 volume
 		ARG 6 pitch
-	METHOD playSound playSound (Ljava/lang/String;Lcom/mojang/minecraft/Entity;FF)V
+	METHOD playSound (Ljava/lang/String;Lcom/mojang/minecraft/Entity;FF)V
 		ARG 1 name
 		ARG 2 entity
 		ARG 3 volume
 		ARG 4 pitch
 	METHOD removeListener$74652038 removeListener (Lcom/mojang/minecraft/a/g;)V
 		ARG 1 listener
-	METHOD setData setData (III[B)V
+	METHOD setData (III[B)V
 		ARG 1 width
 		ARG 2 depth
 		ARG 3 height
 		ARG 4 blocks
-	METHOD setNetworkMode setNetworkMode (Z)V
+	METHOD setNetworkMode (Z)V
 		ARG 1 netoworkMode
-	METHOD setSpawnPos setSpawnPos (IIIF)V
+	METHOD setSpawnPos (IIIF)V
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
 		ARG 4 rot
-	METHOD setTile setTile (IIII)Z
+	METHOD setTile (IIII)Z
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
 		ARG 4 type
-	METHOD setTileNoNeighborChange setTileNoNeighborChange (IIII)Z
+	METHOD setTileNoNeighborChange (IIII)Z
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
 		ARG 4 type
-	METHOD setTileNoUpdate setTileNoUpdate (IIII)Z
+	METHOD setTileNoUpdate (IIII)Z
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
 		ARG 4 id
-	METHOD swap swap (IIIIII)V
+	METHOD swap (IIIIII)V
 		ARG 1 x0
 		ARG 2 y0
 		ARG 3 z0
 		ARG 4 x1
 		ARG 5 y1
 		ARG 6 z1
-	METHOD tick tick ()V
-	METHOD tickEntities tickEntities ()V
-	METHOD updateNeighborsAt updateNeighborsAt (IIII)V
+	METHOD tick ()V
+	METHOD tickEntities ()V
+	METHOD updateNeighborsAt (IIII)V
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
@@ -704,15 +692,15 @@ CLASS de/jarnbjo/vorbis/r de/jarnbjo/vorbis/IdentificationHeader
 		ARG 1 source
 CLASS de/jarnbjo/vorbis/o de/jarnbjo/vorbis/Residue0
 CLASS com/mojang/minecraft/MinecraftApplet com/mojang/minecraft/MinecraftApplet
-	FIELD canvas canvas Ljava/awt/Canvas;
-	FIELD minecraft minecraft Lcom/mojang/minecraft/h;
-	FIELD thread thread Ljava/lang/Thread;
-	METHOD destroy destroy ()V
-	METHOD init init ()V
-	METHOD start start ()V
-	METHOD startGameThread startGameThread ()V
-	METHOD stop stop ()V
-	METHOD stopGameThread stopGameThread ()V
+	FIELD canvas Ljava/awt/Canvas;
+	FIELD minecraft Lcom/mojang/minecraft/h;
+	FIELD thread Ljava/lang/Thread;
+	METHOD destroy ()V
+	METHOD init ()V
+	METHOD start ()V
+	METHOD startGameThread ()V
+	METHOD stop ()V
+	METHOD stopGameThread ()V
 	CLASS 1 Canvas
 CLASS de/jarnbjo/vorbis/p de/jarnbjo/vorbis/Residue2
 CLASS de/jarnbjo/vorbis/m de/jarnbjo/vorbis/CodeBook
@@ -803,14 +791,14 @@ CLASS de/jarnbjo/vorbis/k de/jarnbjo/vorbis/Look
 		ARG 2 vorbis
 		ARG 3 mode
 CLASS com/mojang/minecraft/player/Player com/mojang/minecraft/player/Player
-	FIELD input input Lcom/mojang/minecraft/player/a;
-	FIELD inventory inventory Lcom/mojang/minecraft/player/c;
-	FIELD userType userType B
+	FIELD input Lcom/mojang/minecraft/player/a;
+	FIELD inventory Lcom/mojang/minecraft/player/c;
+	FIELD userType B
 	METHOD <init> (Lcom/mojang/minecraft/level/Level;Lcom/mojang/minecraft/player/a;)V
 		ARG 1 level
 		ARG 2 input
-	METHOD releaseAllKeys releaseAllKeys ()V
-	METHOD setKey setKey (IZ)V
+	METHOD releaseAllKeys ()V
+	METHOD setKey (IZ)V
 		ARG 1 keyId
 		ARG 2 state
 CLASS com/mojang/minecraft/c/d com/mojang/minecraft/gui/MenuItem
@@ -1046,7 +1034,7 @@ CLASS com/mojang/minecraft/c/l com/mojang/minecraft/gui/LoadLevel
 		ARG 1 worldId
 	METHOD a loadButtonInfo ([Ljava/lang/String;)V
 		ARG 1 world
-	METHOD run run ()V
+	METHOD run ()V
 CLASS de/jarnbjo/vorbis/d de/jarnbjo/vorbis/CommentHeader
 	FIELD a comments Ljava/util/HashMap;
 	METHOD <init> (Lde/jarnbjo/a/a/a;)V
@@ -1137,22 +1125,22 @@ CLASS de/jarnbjo/ogg/EndOfOggStreamException de/jarnbjo/ogg/EndOfOggStreamExcept
 CLASS com/mojang/minecraft/StopGameException com/mojang/minecraft/StopGameException
 CLASS com/mojang/minecraft/net/NetworkPlayer com/mojang/minecraft/net/NetworkPlayer
 	FIELD a loadedTexture I
-	FIELD animStep animStep F
-	FIELD animStepO animStepO F
-	FIELD minecraft minecraft Lcom/mojang/minecraft/h;
-	FIELD moveQueue moveQueue Ljava/util/List;
-	FIELD name name Ljava/lang/String;
-	FIELD newTexture newTexture Ljava/awt/image/BufferedImage;
-	FIELD oRun oRun F
-	FIELD run run F
+	FIELD animStep F
+	FIELD animStepO F
+	FIELD minecraft Lcom/mojang/minecraft/h;
+	FIELD moveQueue Ljava/util/List;
+	FIELD name Ljava/lang/String;
+	FIELD newTexture Ljava/awt/image/BufferedImage;
+	FIELD oRun F
+	FIELD run F
 	FIELD textures$7a7c7041 textures Lcom/mojang/minecraft/a/a;
-	FIELD tickCount tickCount I
-	FIELD xp xp I
-	FIELD yBodyRot yBodyRot F
-	FIELD yBodyRotO yBodyRotO F
-	FIELD yp yp I
-	FIELD zombieModel zombieModel Lcom/mojang/minecraft/character/a;
-	FIELD zp zp I
+	FIELD tickCount I
+	FIELD xp I
+	FIELD yBodyRot F
+	FIELD yBodyRotO F
+	FIELD yp I
+	FIELD zombieModel Lcom/mojang/minecraft/character/a;
+	FIELD zp I
 	METHOD <init> (Lcom/mojang/minecraft/h;ILjava/lang/String;IIIFF)V
 		ARG 1 client
 		ARG 2 playerHandle
@@ -1162,27 +1150,27 @@ CLASS com/mojang/minecraft/net/NetworkPlayer com/mojang/minecraft/net/NetworkPla
 		ARG 6 zp
 		ARG 7 yRot
 		ARG 8 xRot
-	METHOD clear clear ()V
-	METHOD queue queue (BBB)V
+	METHOD clear ()V
+	METHOD queue (BBB)V
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
-	METHOD queue queue (BBBFF)V
+	METHOD queue (BBBFF)V
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
 		ARG 4 xRot
 		ARG 5 yRot
-	METHOD queue queue (FF)V
+	METHOD queue (FF)V
 		ARG 1 xRot
 		ARG 2 yRot
-	METHOD teleport teleport (SSSFF)V
+	METHOD teleport (SSSFF)V
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
 		ARG 4 xRot
 		ARG 5 yRot
-CLASS com/mojang/minecraft/level/b/a com/mojang/minecraft/level/types/TileTypes
+CLASS com/mojang/minecraft/level/b/a com/mojang/minecraft/level/types/TileType
 	FIELD a Normal Lcom/mojang/minecraft/level/b/a;
 	FIELD b Water Lcom/mojang/minecraft/level/b/a;
 	FIELD c Lava Lcom/mojang/minecraft/level/b/a;
@@ -1191,11 +1179,11 @@ CLASS com/mojang/minecraft/level/b/a com/mojang/minecraft/level/types/TileTypes
 		ARG 1 type
 CLASS com/mojang/minecraft/BackgroundDownloader
 	CLASS OS OS
-		FIELD linux linux Lcom/mojang/minecraft/BackgroundDownloader$OS;
-		FIELD macos macos Lcom/mojang/minecraft/BackgroundDownloader$OS;
-		FIELD solaris solaris Lcom/mojang/minecraft/BackgroundDownloader$OS;
-		FIELD unknown unknown Lcom/mojang/minecraft/BackgroundDownloader$OS;
-		FIELD windows windows Lcom/mojang/minecraft/BackgroundDownloader$OS;
+		FIELD linux Lcom/mojang/minecraft/BackgroundDownloader$OS;
+		FIELD macos Lcom/mojang/minecraft/BackgroundDownloader$OS;
+		FIELD solaris Lcom/mojang/minecraft/BackgroundDownloader$OS;
+		FIELD unknown Lcom/mojang/minecraft/BackgroundDownloader$OS;
+		FIELD windows Lcom/mojang/minecraft/BackgroundDownloader$OS;
 CLASS com/mojang/a/a com/mojang/network/PacketHandler
 	FIELD a connected Z
 	FIELD b socketChannel Ljava/nio/channels/SocketChannel;
@@ -1240,14 +1228,14 @@ CLASS com/mojang/minecraft/player/a com/mojang/minecraft/player/PlayerInput
 CLASS com/mojang/minecraft/player/b com/mojang/minecraft/player/PlayerController
 	FIELD e inputs [Z
 CLASS com/mojang/minecraft/phys/AABB com/mojang/minecraft/phys/AABB
-	FIELD epsilon epsilon F
-	FIELD serialVersionUID serialVersionUID J
-	FIELD x0 x0 F
-	FIELD x1 x1 F
-	FIELD y0 y0 F
-	FIELD y1 y1 F
-	FIELD z0 z0 F
-	FIELD z1 z1 F
+	FIELD epsilon F
+	FIELD serialVersionUID J
+	FIELD x0 F
+	FIELD x1 F
+	FIELD y0 F
+	FIELD y1 F
+	FIELD z0 F
+	FIELD z1 F
 	METHOD <init> (FFFFFF)V
 		ARG 1 x0
 		ARG 2 y0
@@ -1255,30 +1243,30 @@ CLASS com/mojang/minecraft/phys/AABB com/mojang/minecraft/phys/AABB
 		ARG 4 x1
 		ARG 5 y1
 		ARG 6 z1
-	METHOD clipXCollide clipXCollide (Lcom/mojang/minecraft/phys/AABB;F)F
+	METHOD clipXCollide (Lcom/mojang/minecraft/phys/AABB;F)F
 		ARG 1 c
 		ARG 2 xa
-	METHOD clipYCollide clipYCollide (Lcom/mojang/minecraft/phys/AABB;F)F
+	METHOD clipYCollide (Lcom/mojang/minecraft/phys/AABB;F)F
 		ARG 1 c
 		ARG 2 ya
-	METHOD clipZCollide clipZCollide (Lcom/mojang/minecraft/phys/AABB;F)F
+	METHOD clipZCollide (Lcom/mojang/minecraft/phys/AABB;F)F
 		ARG 1 c
 		ARG 2 za
-	METHOD cloneMove cloneMove (FFF)Lcom/mojang/minecraft/phys/AABB;
+	METHOD cloneMove (FFF)Lcom/mojang/minecraft/phys/AABB;
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
-	METHOD expand expand (FFF)Lcom/mojang/minecraft/phys/AABB;
+	METHOD expand (FFF)Lcom/mojang/minecraft/phys/AABB;
 		ARG 1 xa
 		ARG 2 ya
 		ARG 3 za
-	METHOD grow grow (FFF)Lcom/mojang/minecraft/phys/AABB;
+	METHOD grow (FFF)Lcom/mojang/minecraft/phys/AABB;
 		ARG 1 xa
 		ARG 2 ya
 		ARG 3 za
-	METHOD intersects intersects (Lcom/mojang/minecraft/phys/AABB;)Z
+	METHOD intersects (Lcom/mojang/minecraft/phys/AABB;)Z
 		ARG 1 c
-	METHOD move move (FFF)V
+	METHOD move (FFF)V
 		ARG 1 xa
 		ARG 2 ya
 		ARG 3 za
@@ -1297,6 +1285,17 @@ CLASS com/mojang/minecraft/a/b com/mojang/minecraft/renderer/ChunkSorter1
 	FIELD a player Lcom/mojang/minecraft/player/Player;
 	METHOD <init> (Lcom/mojang/minecraft/player/Player;)V
 		ARG 1 player
+CLASS com/mojang/minecraft/a/a com/mojang/minecraft/renderer/Textures
+	FIELD a texture Ljava/nio/IntBuffer;
+	FIELD b colorArray Ljava/nio/ByteBuffer;
+	FIELD c animations Ljava/util/List;
+	FIELD d idMap Ljava/util/HashMap;
+	METHOD a addAnimation (Lcom/mojang/minecraft/a/a/c;)V
+		ARG 1 animation
+	METHOD a loadTexture (Ljava/awt/image/BufferedImage;)I
+		ARG 1 image
+	METHOD a loadTexture (Ljava/lang/String;)I
+		ARG 1 resourceName
 CLASS com/mojang/minecraft/level/a com/mojang/minecraft/level/LevelOnline
 	FIELD a loadingScreen Lcom/mojang/minecraft/g;
 	METHOD <init> (Lcom/mojang/minecraft/g;)V
@@ -1321,17 +1320,6 @@ CLASS com/mojang/minecraft/level/a com/mojang/minecraft/level/LevelOnline
 		ARG 1 data
 	METHOD c loadFromServer (Ljava/io/InputStream;)[B
 		ARG 0 data
-CLASS com/mojang/minecraft/a/a com/mojang/minecraft/renderer/Textures
-	FIELD a texture Ljava/nio/IntBuffer;
-	FIELD b colorArray Ljava/nio/ByteBuffer;
-	FIELD c animations Ljava/util/List;
-	FIELD d idMap Ljava/util/HashMap;
-	METHOD a addAnimation (Lcom/mojang/minecraft/a/a/c;)V
-		ARG 1 animation
-	METHOD a loadTexture (Ljava/awt/image/BufferedImage;)I
-		ARG 1 image
-	METHOD a loadTexture (Ljava/lang/String;)I
-		ARG 1 resourceName
 CLASS com/mojang/minecraft/a/d com/mojang/minecraft/renderer/PlayerCamera
 	FIELD a client Lcom/mojang/minecraft/h;
 	FIELD b fogFactor F
@@ -1399,87 +1387,6 @@ CLASS com/mojang/minecraft/a/f com/mojang/minecraft/renderer/ChunkSorter2
 		ARG 1 player
 CLASS com/mojang/minecraft/i com/mojang/minecraft/SystemInfo
 	FIELD a osIDs [I
-CLASS com/mojang/minecraft/Entity com/mojang/minecraft/Entity
-	FIELD bbHeight bbHeight F
-	FIELD bb bb Lcom/mojang/minecraft/phys/AABB;
-	FIELD bbWidth bbWidth F
-	FIELD heightOffset heightOffset F
-	FIELD horizontalCollision horizontalCollision Z
-	FIELD level level Lcom/mojang/minecraft/level/Level;
-	FIELD makeStepSound makeStepSound Z
-	FIELD onGround onGround Z
-	FIELD removed removed Z
-	FIELD serialVersionUID serialVersionUID J
-	FIELD walkDist walkDist F
-	FIELD x x F
-	FIELD xRot xRot F
-	FIELD xRotO xRotO F
-	FIELD xd xd F
-	FIELD xo xo F
-	FIELD y y F
-	FIELD yRot yRot F
-	FIELD yRotO yRotO F
-	FIELD yd yd F
-	FIELD yo yo F
-	FIELD z z F
-	FIELD zd zd F
-	FIELD zo zo F
-	METHOD <init> (Lcom/mojang/minecraft/level/Level;)V
-		ARG 1 level
-	METHOD distanceTo distanceTo (Lcom/mojang/minecraft/Entity;)F
-		ARG 1 entity
-	METHOD getBrightness getBrightness ()F
-	METHOD interpolateTurn interpolateTurn (FF)V
-		ARG 1 zo
-		ARG 2 yo
-	METHOD isFree isFree (FFF)Z
-		ARG 1 x
-		ARG 2 y
-		ARG 3 z
-	METHOD isInLava isInLava ()Z
-	METHOD isInWater isInWater ()Z
-	METHOD isLit isLit ()Z
-	METHOD move move (FFF)V
-		ARG 1 xa
-		ARG 2 ya
-		ARG 3 za
-	METHOD moveRelative moveRelative (FFF)V
-		ARG 1 xa
-		ARG 2 za
-		ARG 3 speed
-	METHOD moveTo moveTo (FFFFF)V
-		ARG 1 x
-		ARG 2 y
-		ARG 3 z
-		ARG 4 yRot
-		ARG 5 xRot
-	METHOD playSound playSound (Ljava/lang/String;FF)V
-		ARG 1 name
-		ARG 2 volume
-		ARG 3 ptch
-	METHOD remove remove ()V
-	METHOD render$2a8c5a render (Lcom/mojang/minecraft/a/a;F)V
-		ARG 1 textures
-		ARG 2 scale
-	METHOD resetPos resetPos ()V
-	METHOD setLevel setLevel (Lcom/mojang/minecraft/level/Level;)V
-		ARG 1 level
-	METHOD setPos setPos (FFF)V
-		ARG 1 x
-		ARG 2 y
-		ARG 3 z
-	METHOD setPos setPos (Lcom/mojang/minecraft/net/b;)V
-		ARG 1 update
-	METHOD setRot setRot (FF)V
-		ARG 1 yRot
-		ARG 2 xRot
-	METHOD setSize setSize (FF)V
-		ARG 1 w
-		ARG 2 h
-	METHOD tick tick ()V
-	METHOD turn turn (FF)V
-		ARG 1 xo
-		ARG 2 yo
 CLASS com/mojang/minecraft/a/e com/mojang/minecraft/renderer/Frustum
 	FIELD a m_Frustum [[F
 	FIELD b frustum Lcom/mojang/minecraft/a/e;
@@ -1502,6 +1409,115 @@ CLASS com/mojang/minecraft/a/e com/mojang/minecraft/renderer/Frustum
 	METHOD a normalizePlane ([[FI)V
 		ARG 0 frustrum
 		ARG 1 size
+CLASS com/mojang/minecraft/Entity com/mojang/minecraft/Entity
+	FIELD bbHeight F
+	FIELD bb Lcom/mojang/minecraft/phys/AABB;
+	FIELD bbWidth F
+	FIELD heightOffset F
+	FIELD horizontalCollision Z
+	FIELD level Lcom/mojang/minecraft/level/Level;
+	FIELD makeStepSound Z
+	FIELD onGround Z
+	FIELD removed Z
+	FIELD serialVersionUID J
+	FIELD walkDist F
+	FIELD x F
+	FIELD xRot F
+	FIELD xRotO F
+	FIELD xd F
+	FIELD xo F
+	FIELD y F
+	FIELD yRot F
+	FIELD yRotO F
+	FIELD yd F
+	FIELD yo F
+	FIELD z F
+	FIELD zd F
+	FIELD zo F
+	METHOD <init> (Lcom/mojang/minecraft/level/Level;)V
+		ARG 1 level
+	METHOD distanceTo (Lcom/mojang/minecraft/Entity;)F
+		ARG 1 entity
+	METHOD getBrightness ()F
+	METHOD interpolateTurn (FF)V
+		ARG 1 zo
+		ARG 2 yo
+	METHOD isFree (FFF)Z
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD isInLava ()Z
+	METHOD isInWater ()Z
+	METHOD isLit ()Z
+	METHOD move (FFF)V
+		ARG 1 xa
+		ARG 2 ya
+		ARG 3 za
+	METHOD moveRelative (FFF)V
+		ARG 1 xa
+		ARG 2 za
+		ARG 3 speed
+	METHOD moveTo (FFFFF)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 yRot
+		ARG 5 xRot
+	METHOD playSound (Ljava/lang/String;FF)V
+		ARG 1 name
+		ARG 2 volume
+		ARG 3 ptch
+	METHOD remove ()V
+	METHOD render$2a8c5a render (Lcom/mojang/minecraft/a/a;F)V
+		ARG 1 textures
+		ARG 2 scale
+	METHOD resetPos ()V
+	METHOD setLevel (Lcom/mojang/minecraft/level/Level;)V
+		ARG 1 level
+	METHOD setPos (FFF)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD setPos (Lcom/mojang/minecraft/net/b;)V
+		ARG 1 update
+	METHOD setRot (FF)V
+		ARG 1 yRot
+		ARG 2 xRot
+	METHOD setSize (FF)V
+		ARG 1 w
+		ARG 2 h
+	METHOD tick ()V
+	METHOD turn (FF)V
+		ARG 1 xo
+		ARG 2 yo
+CLASS com/mojang/minecraft/a/h com/mojang/minecraft/renderer/Chunk
+	FIELD a updates I
+	FIELD b visible Z
+	FIELD c tex Lcom/mojang/minecraft/level/Level;
+	FIELD d lists I
+	FIELD e t Lcom/mojang/minecraft/a/c;
+	FIELD f x I
+	FIELD g y I
+	FIELD h z I
+	FIELD i w I
+	FIELD j d I
+	FIELD k h I
+	FIELD l empty [Z
+	METHOD <init> (Lcom/mojang/minecraft/level/Level;IIIII)V
+		ARG 1 level
+		ARG 2 x
+		ARG 3 y
+		ARG 4 z
+		ARG 5 size
+		ARG 6 lists
+	METHOD a delete ()V
+	METHOD a checkVisible (Lcom/mojang/minecraft/a/e;)V
+		ARG 1 frustum
+	METHOD a getLists (Ljava/nio/IntBuffer;I)V
+		ARG 1 output
+		ARG 2 layer
+	METHOD b rebuild ()V
+	METHOD c setOuter ()V
 CLASS com/mojang/minecraft/h com/mojang/minecraft/Minecraft
 	FIELD A connectedServer Lcom/mojang/minecraft/net/c;
 	FIELD B soundSystem Lcom/mojang/minecraft/b/i;
@@ -1566,68 +1582,7 @@ CLASS com/mojang/minecraft/h com/mojang/minecraft/Minecraft
 	METHOD d handleMouse ()V
 	METHOD e tick ()V
 	METHOD f connected ()Z
-	METHOD run run ()V
-CLASS com/mojang/minecraft/a/h com/mojang/minecraft/renderer/Chunk
-	FIELD a updates I
-	FIELD b visible Z
-	FIELD c tex Lcom/mojang/minecraft/level/Level;
-	FIELD d lists I
-	FIELD e t Lcom/mojang/minecraft/a/c;
-	FIELD f x I
-	FIELD g y I
-	FIELD h z I
-	FIELD i w I
-	FIELD j d I
-	FIELD k h I
-	FIELD l empty [Z
-	METHOD <init> (Lcom/mojang/minecraft/level/Level;IIIII)V
-		ARG 1 level
-		ARG 2 x
-		ARG 3 y
-		ARG 4 z
-		ARG 5 size
-		ARG 6 lists
-	METHOD a delete ()V
-	METHOD a checkVisible (Lcom/mojang/minecraft/a/e;)V
-		ARG 1 frustum
-	METHOD a getLists (Ljava/nio/IntBuffer;I)V
-		ARG 1 output
-		ARG 2 layer
-	METHOD b rebuild ()V
-	METHOD c setOuter ()V
-CLASS com/mojang/minecraft/g com/mojang/minecraft/gui/LoadingScreen
-	FIELD a message Ljava/lang/String;
-	FIELD b client Lcom/mojang/minecraft/h;
-	FIELD c header Ljava/lang/String;
-	METHOD <init> (Lcom/mojang/minecraft/h;)V
-		ARG 1 client
-	METHOD a loadingScreen (I)V
-		ARG 1 progress
-	METHOD a loadingScreenHeader (Ljava/lang/String;)V
-		ARG 1 text
-	METHOD b loadingScreen (Ljava/lang/String;)V
-		ARG 1 text
-CLASS com/mojang/minecraft/character/e com/mojang/minecraft/character/Vertex
-	FIELD a pos Lcom/mojang/minecraft/character/d;
-	FIELD b u F
-	FIELD c v F
-	METHOD <init> (FFFFF)V
-		ARG 1 x
-		ARG 2 y
-		ARG 3 z
-		ARG 4 u
-		ARG 5 v
-	METHOD <init> (Lcom/mojang/minecraft/character/d;FF)V
-		ARG 1 pos
-		ARG 2 u
-		ARG 3 v
-	METHOD <init> (Lcom/mojang/minecraft/character/e;FF)V
-		ARG 1 vertex
-		ARG 2 u
-		ARG 3 v
-	METHOD a remap (FF)Lcom/mojang/minecraft/character/e;
-		ARG 1 u
-		ARG 2 v
+	METHOD run ()V
 CLASS com/mojang/minecraft/a/g com/mojang/minecraft/renderer/LevelRenderer
 	FIELD a level Lcom/mojang/minecraft/level/Level;
 	FIELD b textures Lcom/mojang/minecraft/a/a;
@@ -1675,6 +1630,39 @@ CLASS com/mojang/minecraft/a/g com/mojang/minecraft/renderer/LevelRenderer
 		ARG 2 h
 		ARG 3 mode
 		ARG 4 paintTexture
+CLASS com/mojang/minecraft/g com/mojang/minecraft/LoadingScreen
+	FIELD a message Ljava/lang/String;
+	FIELD b client Lcom/mojang/minecraft/h;
+	FIELD c header Ljava/lang/String;
+	METHOD <init> (Lcom/mojang/minecraft/h;)V
+		ARG 1 client
+	METHOD a loadingScreen (I)V
+		ARG 1 progress
+	METHOD a loadingScreenHeader (Ljava/lang/String;)V
+		ARG 1 text
+	METHOD b loadingScreen (Ljava/lang/String;)V
+		ARG 1 text
+CLASS com/mojang/minecraft/character/e com/mojang/minecraft/character/Vertex
+	FIELD a pos Lcom/mojang/minecraft/character/d;
+	FIELD b u F
+	FIELD c v F
+	METHOD <init> (FFFFF)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 u
+		ARG 5 v
+	METHOD <init> (Lcom/mojang/minecraft/character/d;FF)V
+		ARG 1 pos
+		ARG 2 u
+		ARG 3 v
+	METHOD <init> (Lcom/mojang/minecraft/character/e;FF)V
+		ARG 1 vertex
+		ARG 2 u
+		ARG 3 v
+	METHOD a remap (FF)Lcom/mojang/minecraft/character/e;
+		ARG 1 u
+		ARG 2 v
 CLASS com/mojang/minecraft/f com/mojang/minecraft/HitResult
 	FIELD a x I
 	FIELD b y I
@@ -1697,10 +1685,6 @@ CLASS com/mojang/minecraft/character/d com/mojang/minecraft/character/Vec3
 	METHOD a normalize ()Lcom/mojang/minecraft/character/d;
 	METHOD a subtract (Lcom/mojang/minecraft/character/d;)Lcom/mojang/minecraft/character/d;
 		ARG 1 factor
-CLASS com/mojang/minecraft/e com/mojang/minecraft/AppletFallback
-	METHOD <init> (Lcom/mojang/minecraft/h;)V
-		ARG 1 client
-	METHOD run run ()V
 CLASS com/mojang/minecraft/particle/a com/mojang/minecraft/particle/ParticleEngine
 	FIELD a particles Ljava/util/List;
 	FIELD b textures Lcom/mojang/minecraft/a/a;
@@ -1740,6 +1724,10 @@ CLASS com/mojang/minecraft/character/c com/mojang/minecraft/character/Cube
 		ARG 4 w
 		ARG 5 h
 		ARG 6 d
+CLASS com/mojang/minecraft/e com/mojang/minecraft/AppletFallback
+	METHOD <init> (Lcom/mojang/minecraft/h;)V
+		ARG 1 client
+	METHOD run ()V
 CLASS com/mojang/minecraft/d com/mojang/minecraft/Timer
 	FIELD a ticksPerSecond F
 	FIELD b lastTimeSnapshot D
@@ -1771,7 +1759,7 @@ CLASS com/mojang/minecraft/c com/mojang/minecraft/ResourceDownloader
 	METHOD a downloadFile (Ljava/net/URL;Ljava/io/File;)V
 		ARG 1 url
 		ARG 2 outputPath
-	METHOD run run ()V
+	METHOD run ()V
 CLASS com/mojang/minecraft/character/a com/mojang/minecraft/character/ZombieModel
 	FIELD a head Lcom/mojang/minecraft/character/c;
 	FIELD b body Lcom/mojang/minecraft/character/c;
@@ -1800,7 +1788,7 @@ CLASS com/mojang/minecraft/a com/mojang/minecraft/Session
 		ARG 1 username
 		ARG 2 sessionId
 CLASS com/mojang/minecraft/level/a/a com/mojang/minecraft/level/generator/LevelGenerator
-	FIELD a client Lcom/mojang/minecraft/g;
+	FIELD a loadingScreen Lcom/mojang/minecraft/g;
 	FIELD b width I
 	FIELD c height I
 	FIELD d depth I
@@ -1834,10 +1822,10 @@ CLASS com/mojang/minecraft/level/a/a com/mojang/minecraft/level/generator/LevelG
 		ARG 1 blocks
 CLASS com/mojang/minecraft/character/Zombie com/mojang/minecraft/character/Zombie
 	FIELD a zombieModel Lcom/mojang/minecraft/character/a;
-	FIELD rotA rotA F
-	FIELD rot rot F
-	FIELD speed speed F
-	FIELD timeOffs timeOffs F
+	FIELD rotA F
+	FIELD rot F
+	FIELD speed F
+	FIELD timeOffs F
 	METHOD <init> (Lcom/mojang/minecraft/level/Level;FFF)V
 		ARG 1 level
 		ARG 2 x
